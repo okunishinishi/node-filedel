@@ -20,6 +20,7 @@ filedel
 [bd_gemnasium_shield_url]: https://gemnasium.com/okunishinishi/node-filedel.svg
 [bd_npm_url]: http://www.npmjs.org/package/filedel
 [bd_npm_shield_url]: http://img.shields.io/npm/v/filedel.svg?style=flat
+[bd_bower_badge_url]: https://img.shields.io/bower/v/filedel.svg?style=flat
 
 <!-- Badge End -->
 
@@ -33,9 +34,13 @@ Delete files.
 
 
 
+
 <!-- Sections Start -->
 <a name="sections"></a>
 
+<!-- Section from "doc/readme/01.Installation.md.hbs" Start -->
+
+<a name="section-doc-readme-01-installation-md"></a>
 Installation
 -----
 
@@ -43,6 +48,11 @@ Installation
 npm install filedel --save
 ```
 
+<!-- Section from "doc/readme/01.Installation.md.hbs" End -->
+
+<!-- Section from "doc/readme/02.Usage.md.hbs" Start -->
+
+<a name="section-doc-readme-02-usage-md"></a>
 Usage
 ----
 
@@ -56,12 +66,19 @@ filedel("/src/*.tmp", {
     /*...*/
 });
 ```
+<!-- Section from "doc/readme/02.Usage.md.hbs" End -->
+
+<!-- Section from "doc/readme/03.Options.md.hbs" Start -->
+
+<a name="section-doc-readme-03-options-md"></a>
 Options
 -----
 
 | Name | Default | Description |
 | --- | --- | --- |
 | `force` | false | Unlink even if readonly. |
+<!-- Section from "doc/readme/03.Options.md.hbs" End -->
+
 
 <!-- Sections Start -->
 

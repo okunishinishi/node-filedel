@@ -3,7 +3,7 @@
  * Runs with nodeunit.
  */
 
-var filedel = require('./filedel.js'),
+var filedel = require('../lib/filedel.js'),
     path = require('path'),
     fs = require('fs'),
     mkdirp = require('mkdirp');

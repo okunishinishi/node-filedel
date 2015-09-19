@@ -1,0 +1,17 @@
+/**
+ * {{pkg.description}}
+ * @module {{pkg.name}}
+ * @version {{pkg.version}}
+ */
+
+"use strict";
+
+var filedel = require('./filedel'),
+    pkg = require('../package.json');
+
+var lib = filedel.bind(this);
+
+lib.filedel = filedel;
+lib.version = pkg;
+
+module.exports = lib;
