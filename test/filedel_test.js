@@ -1,43 +1,48 @@
 /**
  * Test case for filedel.
- * Runs with nodeunit.
+ * Runs with mocha.
  */
+'use strict'
 
-var filedel = require('../lib/filedel.js'),
-    path = require('path'),
-    fs = require('fs'),
-    mkdirp = require('mkdirp');
+const filedel = require('../lib/filedel.js')
+const path = require('path')
+const fs = require('fs')
+const co = require('co')
+const mkdirp = require('mkdirp')
+const assert = require('assert')
 
-var tmpDir = path.resolve(__dirname, '../tmp');
+let tmpDir = path.resolve(__dirname, '../tmp')
 
-exports.setUp = function (done) {
-    mkdirp.sync(tmpDir);
-    done();
-};
+describe('filedel', () => {
+  before(() => {
+    mkdirp.sync(tmpDir)
+  })
 
-exports.tearDown = function (done) {
-    done();
-};
+  after(() => {
 
-exports['Unlink a file.'] = function (test) {
-    var filename = path.resolve(tmpDir, 'work_file_to_unlink.txt');
-    fs.writeFileSync(filename, 'foo');
-    filedel(filename, {
-        force: true
-    }, function (err) {
-        test.ifError(err);
-        filedel(filename, function (err) {
-            test.ifError(err);
-            test.done();
-        });
-    });
-};
+  })
 
-exports['Try to delete dir.'] = function (test) {
-    var dirname = path.resolve(tmpDir, 'work_dir_to_unlink');
-    mkdirp(dirname);
-    filedel(dirname, function (err) {
-        test.ok(!!err, 'Failed to unlink dir.');
-        test.done();
-    });
-};
+  it('Unlink a file.', () => co(function * () {
+    let filename = path.resolve(tmpDir, 'work_file_to_unlink.txt')
+    fs.writeFileSync(filename, 'foo')
+    assert.ok(fs.existsSync(filename))
+    yield filedel(filename, {
+      force: true
+    })
+    assert.ok(!fs.existsSync(filename))
+    yield filedel(filename)
+    assert.ok(!fs.existsSync(filename))
+  }))
+
+  it('Try to delete dir.', () => co(function * () {
+    let dirname = path.resolve(tmpDir, 'work_dir_to_unlink')
+    mkdirp.sync(dirname)
+    try {
+      yield filedel(dirname)
+    } catch (err) {
+      assert.ok(!!err)
+    }
+  }))
+})
+
+/* global describe, before, after, it */

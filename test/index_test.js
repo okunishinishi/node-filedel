@@ -3,15 +3,19 @@
  * Runs with nodeunit.
  */
 
-"use strict";
+'use strict'
 
-var index = require('../lib/index');
+const index = require('../lib/index')
+const assert = require('assert')
 
-exports['Eval properties.'] = function (test) {
-    test.ok(index);
-    Object.keys(index).forEach(function (key) {
-        test.ok(key);
-        test.ok(index[key]);
-    });
-    test.done();
-};
+describe('index', () => {
+  it('Eval properties.', () => {
+    assert.ok(index)
+    Object.keys(index).forEach((key) => {
+      assert.ok(key)
+      assert.ok(index[ key ])
+    })
+  })
+})
+
+/* global describe, before, after, it */
