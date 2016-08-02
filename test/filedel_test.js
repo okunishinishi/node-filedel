@@ -34,6 +34,12 @@ describe('filedel', () => {
     assert.ok(!fs.existsSync(filename))
   }))
 
+  it('Unlink dir', () => co(function * () {
+    let dirname = `${tmpDir}/hoge/un-linking-dir`
+    mkdirp.sync(dirname)
+    yield filedel.recursive(dirname)
+  }))
+
   it('Try to delete dir.', () => co(function * () {
     let dirname = path.resolve(tmpDir, 'work_dir_to_unlink')
     mkdirp.sync(dirname)

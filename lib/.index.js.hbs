@@ -7,11 +7,11 @@
 'use strict'
 
 const filedel = require('./filedel')
-const pkg = require('../package.json')
 
 let lib = filedel.bind(this)
 
-lib.filedel = filedel
-lib.version = pkg.version
+Object.assign(lib, filedel, {
+  filedel
+})
 
 module.exports = lib
