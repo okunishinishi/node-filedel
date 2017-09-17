@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "node ./ci/test.js",
-    "prepare": "node ./ci/build.js && node ./ci/shim.js"
+    "prepare": "node ./ci/build.js"
   },
   "repository": "okunishinishi/node-filedel",
   "keywords": [
