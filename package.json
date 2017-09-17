@@ -1,9 +1,11 @@
 {
   "name": "filedel",
-  "version": "3.0.1",
+  "version": "4.0.1",
   "description": "Delete files.",
   "main": "lib",
-  "browser": false,
+  "browser": {
+    "lib": false
+  },
   "scripts": {
     "test": "node ./ci/test.js",
     "prepare": "node ./ci/build.js && node ./ci/shim.js"
@@ -24,27 +26,23 @@
   },
   "homepage": "https://github.com/okunishinishi/node-filedel#readme",
   "dependencies": {
-    "aglob": "^2.0.1",
+    "aglob": "^3.0.0",
     "argx": "^3.0.1",
-    "asfs": "^1.0.5",
-    "co": "^4.6.0",
+    "asfs": "^2.0.0",
     "rimraf": "^2.5.4"
   },
   "devDependencies": {
-    "ababel": "^2.0.1",
-    "ababel-es2015": "^2.0.1",
-    "amocha": "^2.0.0",
+    "amocha": "^3.0.0",
     "ape-releasing": "^4.0.4",
-    "ape-reporting": "^3.0.2",
     "ape-tasking": "^4.0.8",
-    "ape-tmpl": "^5.0.15",
+    "ape-tmpl": "^6.0.0",
     "ape-updating": "^4.0.5",
     "coz": "^6.0.16",
     "injectmock": "^2.0.0",
     "mkdirp": "^0.5.1"
   },
   "engines": {
-    "node": ">=6",
+    "node": ">=7.6",
     "npm": ">=4"
   }
 }

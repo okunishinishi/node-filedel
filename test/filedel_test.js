@@ -7,7 +7,6 @@
 const filedel = require('../lib/filedel.js')
 const path = require('path')
 const fs = require('fs')
-const co = require('co')
 const mkdirp = require('mkdirp')
 const assert = require('assert')
 
@@ -22,33 +21,33 @@ describe('filedel', () => {
 
   })
 
-  it('Unlink a file.', () => co(function * () {
+  it('Unlink a file.', async () => {
     let filename = path.resolve(tmpDir, 'work_file_to_unlink.txt')
     fs.writeFileSync(filename, 'foo')
     assert.ok(fs.existsSync(filename))
-    yield filedel(filename, {
+    await filedel(filename, {
       force: true
     })
     assert.ok(!fs.existsSync(filename))
-    yield filedel(filename)
+    await filedel(filename)
     assert.ok(!fs.existsSync(filename))
-  }))
+  })
 
-  it('Unlink dir', () => co(function * () {
+  it('Unlink dir', async () => {
     let dirname = `${tmpDir}/hoge/un-linking-dir`
     mkdirp.sync(dirname)
-    yield filedel.recursive(dirname)
-  }))
+    await filedel.recursive(dirname)
+  })
 
-  it('Try to delete dir.', () => co(function * () {
+  it('Try to delete dir.', async () => {
     let dirname = path.resolve(tmpDir, 'work_dir_to_unlink')
     mkdirp.sync(dirname)
     try {
-      yield filedel(dirname)
+      await filedel(dirname)
     } catch (err) {
       assert.ok(!!err)
     }
-  }))
+  })
 })
 
 /* global describe, before, after, it */
