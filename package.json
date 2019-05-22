@@ -1,6 +1,6 @@
 {
   "name": "filedel",
-  "version": "4.0.3",
+  "version": "4.1.1",
   "description": "Delete files.",
   "main": "lib",
   "browser": {
@@ -26,23 +26,23 @@
   },
   "homepage": "https://github.com/okunishinishi/node-filedel#readme",
   "dependencies": {
-    "aglob": "^3.0.1",
+    "aglob": "^3.0.2",
     "argx": "^4.0.0",
-    "asfs": "^2.2.1",
+    "asfs": "^2.2.3",
     "rimraf": "^2.6.3"
   },
   "devDependencies": {
-    "amocha": "^5.0.1",
+    "amocha": "^6.0.0",
     "ape-releasing": "^5.0.7",
     "ape-tasking": "^4.0.12",
     "ape-tmpl": "^6.0.14",
     "ape-updating": "^5.0.3",
-    "coz": "^7.0.17",
+    "coz": "^7.0.19",
     "injectmock": "^2.0.0",
     "mkdirp": "^0.5.1"
   },
   "engines": {
-    "node": ">=7.6",
-    "npm": ">=4"
+    "node": ">=8",
+    "npm": ">=5"
   }
 }
